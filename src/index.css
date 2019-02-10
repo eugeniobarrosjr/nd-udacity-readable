@@ -1,0 +1,11 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Lato, Arial, sans-serif;
+}
+html,
+body,
+#root {
+  min-height: 100% !important;
+  height: 100%;
+}
