@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
+import PropTypes from 'prop-types';
 import CommentVotingContainer from '../../containers/CommentVotingContainer';
 import CommentEditContainer from '../../containers/CommentEditContainer';
 import CommentFormContainer from '../../containers/CommentFormContainer';
@@ -20,5 +21,10 @@ const Comment = ({ comment, isEditing }) => (
     <CommentVotingContainer comment={comment} />
   </Container>
 );
+
+Comment.propTypes = {
+  comment: PropTypes.shape({}).isRequired,
+  isEditing: PropTypes.bool.isRequired,
+};
 
 export default Comment;

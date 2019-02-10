@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Comment from '../Comment';
 import CommentFormContainer from '../../containers/CommentFormContainer';
 
 import { Container, Header } from './styles';
 
 class CommentList extends Component {
+  static propTypes = {
+    fetchComments: PropTypes.func.isRequired,
+    postId: PropTypes.string.isRequired,
+    commentToEdit: PropTypes.shape({}).isRequired,
+    comments: PropTypes.shape({}).isRequired,
+  };
+
   componentDidMount() {
     const { fetchComments, postId } = this.props;
     fetchComments(postId);

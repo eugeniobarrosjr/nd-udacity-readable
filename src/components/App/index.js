@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { NavLink, Route, Switch } from 'react-router-dom';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { EDIT_POST } from '../../actions/posts.creator';
 import CreateEditPostContainer from '../../containers/CreateEditPostContainer';
@@ -17,6 +18,10 @@ export const NoMatch = () => (
 );
 
 class App extends Component {
+  static propTypes = {
+    fetchCategories: PropTypes.func.isRequired,
+  };
+
   componentWillMount() {
     const { fetchCategories } = this.props;
     fetchCategories();

@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 
 import { Input, Form, Label, Button } from './styles';
 
 export default class CommentForm extends Component {
+  static defaultProps = {
+    comment: {},
+  };
+
+  static propTypes = {
+    postId: PropTypes.string.isRequired,
+    comment: PropTypes.shape({}),
+    isEditing: PropTypes.bool.isRequired,
+    editComment: PropTypes.func.isRequired,
+    addComment: PropTypes.func.isRequired,
+  };
+
   constructor(props) {
     super(props);
 

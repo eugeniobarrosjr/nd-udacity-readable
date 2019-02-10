@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import { SortFilters } from '../../actions/sortFilter';
 import PostListItem from '../PostListItem';
@@ -14,6 +15,13 @@ import {
 } from './styles';
 
 export default class PostList extends Component {
+  static propTypes = {
+    setSortFilter: PropTypes.func.isRequired,
+    sortFilter: PropTypes.string.isRequired,
+    filterCategory: PropTypes.string.isRequired,
+    posts: PropTypes.shape({}).isRequired,
+  };
+
   componentDidMount() {
     const { fetchPosts, filterCategory } = this.props;
     fetchPosts(filterCategory);

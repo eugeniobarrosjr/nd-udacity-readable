@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import uuidv4 from 'uuid/v4';
 import { EDIT_POST, ADD_POST } from '../../actions/posts.creator';
 
@@ -14,6 +15,18 @@ import {
 } from './styles';
 
 class CreateEditPost extends Component {
+  static defaultProps = {
+    post: {},
+  };
+
+  static propTypes = {
+    post: PropTypes.shape({}),
+    isEditing: PropTypes.bool.isRequired,
+    history: PropTypes.shape({}).isRequired,
+    sendEditPost: PropTypes.func.isRequired,
+    sendAddPost: PropTypes.func.isRequired,
+  };
+
   constructor(props) {
     super(props);
 

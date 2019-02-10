@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Button, Container } from './styles';
 
@@ -19,5 +20,13 @@ const CommentEditWidget = ({
     <Button onClick={() => deleteEntity(comment)}>Delete</Button>
   </Container>
 );
+
+CommentEditWidget.propTypes = {
+  openCommentEditForm: PropTypes.func.isRequired,
+  closeCommentEditForm: PropTypes.func.isRequired,
+  deleteEntity: PropTypes.func.isRequired,
+  comment: PropTypes.shape({}).isRequired,
+  isEditing: PropTypes.bool.isRequired,
+};
 
 export default CommentEditWidget;

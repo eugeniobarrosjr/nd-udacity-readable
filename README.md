@@ -21,7 +21,25 @@ To download the project follow the instructions bellow:
 
 ```
 git clone https://github.com/eugeniobarrosjr/nd-udacity-readable.git
-cd myreads
+cd nd-udacity-readable
+```
+
+
+
+Then install dependencies on server and run:
+
+```
+cd server
+yarn install
+yarn start
+```
+
+or
+
+```
+cd server
+npm install
+npm run start
 ```
 
 Then install dependencies and run:

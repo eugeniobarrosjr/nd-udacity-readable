@@ -1,9 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-one-expression-per-line */
 import isEmpty from 'lodash/isEmpty';
+import PropTypes from 'prop-types';
 import React, { Component, Fragment } from 'react';
 
 import { formatTimestamp } from '../../utils/helpers';
+import PostVotingContainer from '../../containers/PostVotingContainer';
+import PostEditActionsContainer from '../../containers/PostEditActionsContainer';
 import { EDIT_POST } from '../../actions/posts.creator';
 import CommentListContainer from '../../containers/CommentListContainer';
 import CreateEditPostContainer from '../../containers/CreateEditPostContainer';
@@ -19,6 +22,18 @@ import {
 } from './styles';
 
 class PostDetail extends Component {
+  static defaultProps = {
+    postAction: '',
+  };
+
+  static propTypes = {
+    history: PropTypes.shape({}).isRequired,
+    fetchPost: PropTypes.func.isRequired,
+    post: PropTypes.shape({}).isRequired,
+    match: PropTypes.shape({}).isRequired,
+    postAction: PropTypes.string,
+  };
+
   componentWillMount() {
     const {
       match: {
@@ -50,6 +65,8 @@ class PostDetail extends Component {
       </PostInfo>
       <Body>{post.body}</Body>
       <PostInfo>Comments: {post.commentCount}</PostInfo>
+      <PostEditActionsContainer entity={post} />
+      <PostVotingContainer entity={post} />
     </Container>
   );
 
